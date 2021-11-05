@@ -1,21 +1,16 @@
 const sumItems = function(array) {
+  // Sum all the numbers in the array
   let sum = 0;
   for (const val of array) {
-    // console.log(`sum: ${sum}`);
-    // console.log(`val: ${val}`);
-    // console.log(`is it an array? ${Array.isArray(val)}`);
+    // recursive case - is the current item an array?
     if (Array.isArray(val)) {
-      // console.log(`calling sumItems again...`);
       sum += sumItems(val);
+    // base case - is the current item a number?
     } else {
-      // console.log(`adding val to sum...`);
       sum += val;
-      // console.log(`sum is now: ${sum}`);
-      // console.log(`---------------------`);
     }
   }
   return sum;
 };
 
-// console.log(sumItems([1, [1, 1], 1]));
 module.exports = sumItems;
